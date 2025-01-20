@@ -2,7 +2,8 @@
 import Link from "next/link";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import menuItems from "@/helpers/data/main-menu.json"; //json ı import ettik, dinamik olarak verecğiz aşağıda
+//import menuItems from "@/helpers/data/main-menu.json"; //json ı import ettik, dinamik olarak verecğiz aşağıda
+import { MainMenu } from "./main-menu";
 
 const Header = () => {
 	return (
@@ -13,18 +14,7 @@ const Header = () => {
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
-					<Nav className="me-auto">
-						{menuItems.map((item) => (
-							<Nav.Link
-								href={item.url}
-								key={item.id}
-								prefetch={item.prefetch} /* Nav.Link in prefetch öz. olmadığı için as kullandık */
-								as={Link}
-							>
-								{item.title}
-							</Nav.Link>
-						))}
-					</Nav>
+					<MainMenu/>
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

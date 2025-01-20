@@ -1,22 +1,30 @@
-import Link from "next/link";
+import Galery from "@/components/galery";
+import { wait } from "@/helpers/functions";
+
 import React from "react";
 
-export default function () {
+export default async function (){
+
+	await wait(3000);
 	return (
 		<div>
 			<h1>About Page</h1>
 
-			<ul>
-				<li>
-					<Link href="/">Home</Link>
-				</li>
-				<li>
-					<Link href="/products">Products</Link>
-				</li>
-				<li>
-					<Link href="/contact">Contact</Link>
-				</li>
-			</ul>
+			<Galery/>
+
+			
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+	 Exercitationem quasi ipsa ut, natus perferendis atque
+	  vero nihil quibusdam cupiditate repellendus?</p>
+
+	  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+	 Exercitationem quasi ipsa ut, natus perferendis atque
+	  vero nihil quibusdam cupiditate repellendus?</p>
+
+	  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+	 Exercitationem quasi ipsa ut, natus perferendis atque
+	  vero nihil quibusdam cupiditate repellendus?</p>
+
 		</div>
 
 		

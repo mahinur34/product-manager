@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Page = async ({params}) => {
+const Page =  () => {
 
-  const {id} =await params;
+  //throw new Error("Login Error")
+
+
   return (
-    <div>Dashboard Product Details Page: {id}</div>
+    <div>Login Page</div>
   )
 }
 
