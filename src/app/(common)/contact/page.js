@@ -1,9 +1,17 @@
+import {PageHeader} from '@/components/page-header'
 import React from 'react'
 
-const Page = () => {
-  return (
-    <div>Contact Page</div>
-  )
-}
+export const metadata = {
+	title: "Contact | Cosmo Shop",
+	description: "High quality products",
+};
 
-export default Page
+const Page = () => {
+	return (
+		<div>
+			<PageHeader title="Contact" />
+		</div>
+	);
+};
+
+export default Page;

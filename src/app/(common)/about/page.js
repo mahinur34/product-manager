@@ -1,16 +1,22 @@
-import Galery from "@/components/galery";
+import { Gallery } from "@/components/gallery";
+import { PageHeader } from "@/components/page-header";
 import { wait } from "@/helpers/functions";
-
 import React from "react";
 
-export default async function (){
+export const metadata = {
+	title: "About | Cosmo Shop",
+	description: "High quality products",
+};
+
+const Page = async () => {
 
 	await wait(3000);
 	return (
 		<div>
-			<h1>About Page</h1>
+			
+			<PageHeader title="About"/>
 
-			<Galery/>
+			<Gallery/>
 
 			
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -30,3 +36,5 @@ export default async function (){
 		
 	);
 }
+
+export default Page;

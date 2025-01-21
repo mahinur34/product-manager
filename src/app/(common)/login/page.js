@@ -1,3 +1,4 @@
+import PageHeader from '@/components/page-header'
 import React from 'react'
 
 const Page =  () => {
@@ -6,7 +7,7 @@ const Page =  () => {
 
 
   return (
-    <div>Login Page</div>
+    <PageHeader title="products"/>
   )
 }
 

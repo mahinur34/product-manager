@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { NavLink } from "react-bootstrap";
 
 export const Linker = (props) => {
 	const pathname = usePathname();
@@ -9,7 +10,7 @@ export const Linker = (props) => {
     const isActive = pathname === props.href ? "active" : "";
 
 	return (
-		<Link {...props} className={`nav-link ${isActive}`}>
+		<Link {...props} className={`nav-link ${isActive}`} as={NavLink}>
 			{props.children}
 		</Link>
 	);

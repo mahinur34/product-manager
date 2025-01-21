@@ -1,23 +1,25 @@
+$font-family-sans-serif: var(--font-montserrat);
 @import "bootstrap/scss/bootstrap";
 
-
-html, body{
-    height: 100%;
+html,
+body {
+	height: 100%;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
+body {
+	display: flex;
+	flex-direction: column;
 }
 
-.nav-link.active{
-    color: rgb(133, 6, 23) !important
+h1{
+	font-family: var(--font-roboto);
+	font-weight: 700;
 }
 
-footer .nav-link{
-    color: rgb(113, 113, 0) !important
+.nav-link {
+	color: rgb(113, 113, 0) !important;
 }
 
-footer .nav-link.active{
-    color: rgb(242, 242, 3) !important
+.nav-link.active {
+	color: rgb(242, 242, 3) !important;
 }

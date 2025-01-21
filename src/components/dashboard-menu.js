@@ -6,7 +6,7 @@ import menuItems from "@/helpers/data/dashboard-menu.json";
 
 const DashboardMenu = () => {
 	return (
-		<Navbar expand="lg" className="bg-info mb-3">
+		<Navbar expand="lg" className="bg-info mb-3" collapseOnSelect>
 			<Container fluid>
 				<Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
 				<Navbar.Toggle aria-controls="dashboard-menu" />
