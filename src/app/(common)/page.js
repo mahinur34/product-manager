@@ -7,8 +7,12 @@ const Page = () => { //buradaki div i alıp layouttaki children a yerleştirecek
     <>
     <Slider/>
 
-      <p>Lorem ipsum dolor sit amet consectetur
-         adipisicing elit. Quas, rerum!</p>
+    <p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+				aut nulla odio praesentium animi? Minima deserunt eum modi, illo
+				rem, nostrum atque aliquid incidunt molestias numquam architecto
+				consectetur, tenetur iste.
+			</p>
     </>
   )
 }

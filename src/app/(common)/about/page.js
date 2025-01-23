@@ -4,11 +4,13 @@ import { wait } from "@/helpers/functions";
 import React from "react";
 
 export const metadata = {
-	title: "About | Cosmo Shop",
+	title: "About",
 	description: "High quality products",
 };
 
 const Page = async () => {
+
+	console.log("Bu static olarak oluşturuldu");
 
 	await wait(3000);
 	return (
@@ -38,3 +40,12 @@ const Page = async () => {
 }
 
 export default Page;
+
+//cache eğer remde tutuluyorsa gecicidir,
+//dist te tutuluyorsa kalıcıdır.
+
+//staticten farklı olarak serverda olmayan bir sayfanın serverda oluşturulup ondan sonra gönderilmesi var : dynamicte 
+//staticte ise zaten var olan bir html nin gönderilmesi var.
+//önce her zaman html gelir.
+//toplu gönderme yoktur.
+//ikisi de SEO açısından önemlidir dynamic de statik de.

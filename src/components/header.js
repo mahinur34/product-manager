@@ -7,6 +7,7 @@ import { MainMenu } from "./main-menu";
 import Image from "next/image";
 
 
+
 const Header = () => {
 	return (
 		<Navbar expand="lg" className="bg-dark" collapseOnSelect data-bs-theme="dark"> {/*Navbar a tıklandığında açık kaldığı için collapseOnSelect öz. ekledik */}
@@ -24,3 +25,5 @@ const Header = () => {
 };
 
 export default Header;
+
+//data-bs-theme : data- ile başlayan custom proplar oluşturabilirz

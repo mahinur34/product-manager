@@ -1,10 +1,16 @@
+import { PageHeader } from "@/components/page-header";
 import Link from "next/link";
 import React from "react";
+
+export const metadata = {
+	title: "Products",
+	description: "High quality products",
+};
 
 const Page = () => {
 	return (
 		<div>
-			<h2>Products Page</h2>
+			<PageHeader title="Products" />
 
 			{[...new Array(50)].map((_, i) => (
 				<p key={i}>

@@ -1,4 +1,4 @@
-$font-family-sans-serif: var(--font-montserrat);
+$font-family-sans-serif: var(--font-montserrat); //hedef bütün fontu değiştirmek
 @import "bootstrap/scss/bootstrap";
 
 html,
@@ -23,3 +23,9 @@ h1{
 .nav-link.active {
 	color: rgb(242, 242, 3) !important;
 }
+
+//uygulamanın genel stili
+
+//https://styled-components.com/
+
+//arama kısmı control F

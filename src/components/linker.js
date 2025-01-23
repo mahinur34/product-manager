@@ -10,7 +10,7 @@ export const Linker = (props) => {
     const isActive = pathname === props.href ? "active" : "";
 
 	return (
-		<Link {...props} className={`nav-link ${isActive}`} as={NavLink}>
+		<Link {...props} className={`nav-link ${isActive}`} as={NavLink}> {/* as NavLink yaptık çünkü hamburger menu açıldığında kapanmıyordu */}
 			{props.children}
 		</Link>
 	);

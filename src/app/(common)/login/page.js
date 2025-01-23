@@ -1,14 +1,19 @@
-import PageHeader from '@/components/page-header'
+import { PageHeader } from '@/components/page-header'
 import React from 'react'
 
-const Page =  () => {
+export const metadata ={
+  title:"Login",
+  description :"High quality products",
+}
 
-  //throw new Error("Login Error")
+const Page = () => {
 
-
+  //throw new Error("Login Error");
   return (
-    <PageHeader title="products"/>
+    <div>
+      <PageHeader title="Login" />
+    </div>
   )
 }
 
-export default Page
+export default Page;

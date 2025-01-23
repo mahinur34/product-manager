@@ -12,16 +12,16 @@ import "swiper/css/navigation";
 export const Slider = () => {
     return (
         <Swiper
-            spaceBetween={50}
-            slidesPerView={1}
+            spaceBetween={50} //aralarında ne kadar boşluk olsun
+            slidesPerView={1} //ekranda kaç tane gözüksün
             autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
+                delay: 2500, //2.5 sn
+                disableOnInteraction: false, //fare üzerine geldiğinde hareket etme durumu
             }}
             pagination={{
                 clickable: true,
             }}
-            navigation={true}
+            navigation={true} //sağlı sollu ok işaretleri
             modules={[Autoplay, Pagination, Navigation]}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
@@ -32,7 +32,7 @@ export const Slider = () => {
                         src={`/images/${slide.image}`}
                         fill
                         alt="Slide"
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "cover" }} //image yi bulunduğu yere oturtur
                     />
                 </SwiperSlide>
             ))}
