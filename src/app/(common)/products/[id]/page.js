@@ -2,14 +2,22 @@
 //server componentler async olabilir
 
 import { PageHeader } from '@/components/page-header'
+import  ProductDetails  from '@/components/product-details'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-export const generateMetadata = ()=> { //dinamik metadata, ürünleri dinamik alacağız
+const API_URL =`https://67573dc0c0a427baf94c36b2.mockapi.io/api/v1/products`;
+
+export const generateMetadata = async({params})=> { //dinamik metadata, ürünleri dinamik alacağız
   //fetchData
+
+  const {id}= await params;
+  const res = await fetch(`${API_URL}/${id}`);
+  const data = await res.json();
+
   return {
-    title :"?????",
-    description :"???????"
+    title :data.title,
+    description :data.description,
   }
 }
 
@@ -17,22 +25,35 @@ export const generateMetadata = ()=> { //dinamik metadata, ürünleri dinamik al
 //sadece sayfalara page lerde ve route larda {params} kullanıyoruz, react ta componentler async yapılamaz ama next js te server comp async yapılabilir.
 const Page = async({params}) => {
 
-  const {id} = (await params)
-  //const id = (await params).id;
+//const id = (await params).id;
+  const {id} = await params; //id yi aldık
 
-  if(id==="100") notFound();
+  if(!id) throw new Error("Product id not found"); //id olmama durumu
 
-  console.log("Bu sayfa dinamik olarak oluşturuldu");
+  const res = await fetch(`${API_URL}/${id}`);
+
+  const data = await res.json();//gelen requesti json a çevirdik
+
+  if(!res.ok) throw new Error(data.message); //kullanıcıya gösterilmez
+
+  //datanın olmama durumunu kontrol:
+  if(!data) notFound();
+  
+
+  
+
+  //console.log("Bu sayfa dinamik olarak oluşturuldu");
 
   //fetch
 
 
   return (
-    <div>
-      <PageHeader title="Product Details"/>
+    <>
+      <PageHeader title={data.title}/>
      
-       Product Details Page : {id}</div>
+       <ProductDetails product={data} />
+       </>
   )
 }
 
-export default Page
+export default Page;

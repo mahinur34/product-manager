@@ -1,27 +1,25 @@
 import { PageHeader } from "@/components/page-header";
-import Link from "next/link";
+import { ProductList } from "@/components/product-list";
 import React from "react";
+
+const API_URL = `https://67573dc0c0a427baf94c36b2.mockapi.io/api/v1/products`;
 
 export const metadata = {
 	title: "Products",
 	description: "High quality products",
 };
 
-const Page = () => {
+const Page = async() => {
+
+	//server comp. lerin re render olayı yok.
+
+	const res = await fetch(API_URL);
+	const data = await res.json();
+
 	return (
 		<div>
 			<PageHeader title="Products" />
-
-			{[...new Array(50)].map((_, i) => (
-				<p key={i}>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Itaque enim in vel sed nostrum molestias quis excepturi
-					voluptas deleniti provident? Corporis harum aperiam
-					temporibus accusamus quod? Explicabo autem suscipit quia!
-				</p>
-			))}
-
-            <Link href="/dashboard">Dashboard</Link>
+			<ProductList products={data} />
 		</div>
 	);
 };
