@@ -3,6 +3,8 @@ import Header from '@/components/header'
 import React from 'react'
 import { Container } from 'react-bootstrap'
 
+export const revalidate = 30;
+
 const Layout = ({children}) => {
   return (
     <>

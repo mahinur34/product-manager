@@ -1,6 +1,7 @@
 import { ClientComp } from '@/components/client-comp';
 import {PageHeader} from '@/components/page-header'
 import { ServerComp } from '@/components/server-comp';
+import { TestForm } from '@/components/test-form';
 import React from 'react'
 
 export const metadata = {
@@ -18,6 +19,7 @@ const Page = () => {
 			<ClientComp>
 				<ServerComp/>
  			</ClientComp> {/* bu şekilde yazdığımızda clientcomp client ta, servercomp server da çalışır */}
+			<TestForm/>
 		</div>
 	);
 };

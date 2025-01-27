@@ -3,6 +3,7 @@
 
 import { PageHeader } from '@/components/page-header'
 import  ProductDetails  from '@/components/product-details'
+import { RelatedProducts } from '@/components/related-products';
 import { notFound } from 'next/navigation'
 import React from 'react'
 
@@ -30,14 +31,17 @@ const Page = async({params}) => {
 
   if(!id) throw new Error("Product id not found"); //id olmama durumu
 
-  const res = await fetch(`${API_URL}/${id}`);
+  const fetchProduct =  (await fetch(`${API_URL}/${id}`)).json(); //baştaki awaitleri kaldırınca direk getirecek ürürnleri
+  const fetchRelatedProducts =  (await fetch(`${API_URL}`)).json();
 
-  const data = await res.json();//gelen requesti json a çevirdik
+  const [product, relatedProducts] = await Promise.all([fetchProduct,fetchRelatedProducts]); //buradan toplu almış olduk, paralel fetching
 
-  if(!res.ok) throw new Error(data.message); //kullanıcıya gösterilmez
+  //const data = await res.json();//gelen requesti json a çevirdik
+
+  //if(!product.ok) throw new Error(product.message); //kullanıcıya gösterilmez
 
   //datanın olmama durumunu kontrol:
-  if(!data) notFound();
+  if(!product) notFound();
   
 
   
@@ -49,11 +53,16 @@ const Page = async({params}) => {
 
   return (
     <>
-      <PageHeader title={data.title}/>
+      <PageHeader title={product.title}/>
      
-       <ProductDetails product={data} />
+       <ProductDetails data={product} />
+       <RelatedProducts data={relatedProducts} />
        </>
   )
 }
 
 export default Page;
+
+
+///burada aynı adrese iki tane fetch yapıldı fakat performans kaybına neden olmaz çünkü request memorization
+//buna olanak sağlıyor. Birden fazla request için request memorization tekrar tekrar data cache e veya data source ye gitmez.

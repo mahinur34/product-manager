@@ -9,11 +9,15 @@ export const metadata = {
 	description: "High quality products",
 };
 
+
+
+//export const revalidate = 60; bunun etkili olması için alt kısımı kaldırmalıyız
+
 const Page = async() => {
 
 	//server comp. lerin re render olayı yok.
 
-	const res = await fetch(API_URL);
+	const res = await fetch(API_URL); //cache e zorla, ,{cache:"force-cache"} :,{cache:"force-cache", next:{revalidate:30}}
 	const data = await res.json();
 
 	return (

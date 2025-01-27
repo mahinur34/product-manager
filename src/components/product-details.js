@@ -3,8 +3,8 @@ import React from "react";
 import { Badge, Col, Row } from "react-bootstrap";
 import { ButtonReturnBack } from "./button-return-back";
 
-const ProductDetails = ({ product }) => {
-	const { title, image, price, description } = product;
+const ProductDetails = ({ data }) => {
+	const { title, image, price, description } = data;
 
 	return (
 		<Row className="g-4">
