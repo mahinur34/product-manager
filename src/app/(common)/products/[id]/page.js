@@ -31,10 +31,14 @@ const Page = async({params}) => {
 
   if(!id) throw new Error("Product id not found"); //id olmama durumu
 
-  const fetchProduct =  (await fetch(`${API_URL}/${id}`)).json(); //baştaki awaitleri kaldırınca direk getirecek ürürnleri
-  const fetchRelatedProducts =  (await fetch(`${API_URL}`)).json();
+  const fetchProduct =  (await fetch(`${API_URL}/${id}`)).json(); //baştaki awaitleri kaldırınca direk getirecek ürürnleri, json un awaiti yok
+  const fetchReleatedProducts =  (await fetch(`${API_URL}`)).json();
 
-  const [product, relatedProducts] = await Promise.all([fetchProduct,fetchRelatedProducts]); //buradan toplu almış olduk, paralel fetching
+  //buradan toplu almış olduk, paralel fetching
+  const [product, relatedProducts] = await Promise.all([ //aynı anda iki isteği almış oluyor
+		fetchProduct,
+		fetchReleatedProducts,
+	]);
 
   //const data = await res.json();//gelen requesti json a çevirdik
 
@@ -54,7 +58,6 @@ const Page = async({params}) => {
   return (
     <>
       <PageHeader title={product.title}/>
-     
        <ProductDetails data={product} />
        <RelatedProducts data={relatedProducts} />
        </>
@@ -66,3 +69,5 @@ export default Page;
 
 ///burada aynı adrese iki tane fetch yapıldı fakat performans kaybına neden olmaz çünkü request memorization
 //buna olanak sağlıyor. Birden fazla request için request memorization tekrar tekrar data cache e veya data source ye gitmez.
+
+//request memorization un kapasitesi düşük ama çok hızlı, ve remde dir.
